@@ -31,18 +31,18 @@ public class Playr : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Makes it jump
-
+     
     }
 
 
-
+    
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class Playr : MonoBehaviour
 
         if (Input.GetKey(jump)) //MAKE THE JUMP ACTUALLY JUMP
         {
-
+            
         }
         else if (Input.GetKey(crouch))
         {
@@ -83,27 +83,16 @@ public class Playr : MonoBehaviour
         }
 
 
-        if (sanity <= 75)
-        { //oooooooooo scary effects
+        if (sanity < 0)
+        { //FILL
 
         }
-        else if (sanity <= 50)
-        { //oooooo scary effects but scarier
-        }
-        else if (sanity <= 25)
-        { //oooo scary effects but very very scary
-        }
-        else if (sanity <= 0)
-        { //dead
-        }
-            transform.position =
-                  new Vector3(transform.position.x,
-                  Mathf.Clamp(transform.position.y, -2.98f, 2.98f), 0);//environment restrictions, though only for the roof and floor
+
     }
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;  
+        isFacingRight = !isFacingRight;  // 
         transform.Rotate(0f, 180f, 0f);
         Transform firepoint = transform.Find("FirePoint");
         firepoint.localPosition = new Vector3(-firepoint.localPosition.x, firepoint.localPosition.y, firepoint.localPosition.z);
@@ -111,21 +100,19 @@ public class Playr : MonoBehaviour
 
 
     private void Move(float direction)
-    {
+         {
         Vector2 movement = new Vector2(direction * speed, rb.linearVelocity.y); // r�kna ut hur vi r�r oss i relation till spelarens velocity
         rb.linearVelocity = movement;
         float absoluteSpeed = Mathf.Abs(direction * speed);
-        animator.SetFloat("Speed", absoluteSpeed); // Använd Speed parametern i animator
+        animator.SetFloat("Speed", absoluteSpeed); // Använd Speed parametern i animatorn
+    
 
 
-    }
 
 
 
-    private void OnTriggerEnter2D(Collider2D playerCollider)
-    {
-    }
+      
 
-
+         }
 }
 
