@@ -23,35 +23,49 @@ public class Lights : MonoBehaviour
     [SerializeField]
     GameObject lightPreFab;
 
+    float nextChange;
+    float changeTimer;
+
+    GameObject newGameObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        nextChange = Random.Range(2f, 7f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (active == true)
+        changeTimer += Time.deltaTime;
+        if (changeTimer >= nextChange)
         {
-            GameObject newGameObject = Instantiate(lightPreFab, new Vector3(0, 0, 0), Quaternion.identity);
+            active = !active;
+            changeTimer = 0f;
+
+            nextChange = Random.Range(2f, 7f);
         }
-        else if (active == false)
+
+
+        if (active == true && newGameObject == null)
         {
-            Destroy(lightPreFab);
+            newGameObject = Instantiate(lightPreFab, new Vector3(0, 0, 0), Quaternion.identity);
+        }
+        else if (active == false && newGameObject != null)
+        {
+            Destroy(newGameObject);
+            newGameObject = null;
         }
 
 
+    }
 
-
-            void OnTriggerEnter2D(Collider2D otherCollider)
-            {
-                if (otherCollider.CompareTag("Player")) //check if the collided object has the tag "EnemyBeam"
-                {
-                    totalPlayerSanity += sanityGain;
-                }
-            }
+    void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        if (otherCollider.CompareTag("Player")) //check if the collided object has the tag "EnemyBeam"
+        {
+            totalPlayerSanity += sanityGain;
+        }
     }
 }
