@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class moemvment3 : MonoBehaviour
 
-{
+{ //REMINDER: REMOVE ANIMATION "//" CODE
     
     
     public float moveSpeed = 5f; // movement speed
