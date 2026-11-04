@@ -4,43 +4,48 @@ using UnityEngine.SceneManagement;
 public class moemvment3 : MonoBehaviour
 
 {
-    [SerializeField]
-    public float speed = 3f;
+    
     [SerializeField]
     public int sanity = 100;
-    public float moveSpeed = 5f; // Hur snabbt v�r karakt�r f�r r�ra sig
-    public float jumpForce = 5f; // Vilken force hopp knappen kan g�ra
-    public Transform groundCheck; // Kolla om spelaren har r�rt vid marken
-    public float groundCheckRadius = 0.6f; // Inom vilken radie kan vi r�ra marken
-    public LayerMask groundLayer; // Vilket lager har marken
-    private bool isFacingRight = true; // Kolla vilket h�ll karakt�ren tittar i
-    private bool isGrounded = false; // Om vi �r p� marken eller inte
-    private Rigidbody2D rb; // Ref till v�r rigidbody2D
-    private Animator animator; // Ref till vår animator 
+    public float moveSpeed = 5f; // movement speed
+    public float jumpForce = 5f; // how high you jump
+    public Transform groundCheck; // checks if you're on the ground 
+    public float groundCheckRadius = 0.2f; // groundcheck hitbox
+    public LayerMask groundLayer; // whether the groundchecks sees it as ground or not
+    private bool isFacingRight = true; // checks what direction the player is facing
+    private bool isGrounded = false; // in case we are on the ground or not
+    private Rigidbody2D rb; // rigidbody
+    //private Animator animator; // animating
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // H�mta v�r Rigidbody 2D
-        animator = GetComponent<Animator>(); // Hämta vår Animator
+        rb = GetComponent<Rigidbody2D>(); // grabs the rigidobdy
+        //animator = GetComponent<Animator>(); // grabs the animator
     }
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren �r p� marken
-        float moveDirection = Input.GetAxis("Horizontal");  // Kolla om vi r�r oss horisontellt
-        Move(moveDirection); // Flytta spelaren
-        if (moveDirection > 0 && !isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
-        {
-            Flip();
-        }
-        else if (moveDirection < 0 && isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
-        {
-            Flip();
-        }
-        if (Input.GetButtonDown("Jump") && isGrounded) // Om vi tycker p� space, s� l�t spelaren hoppa
+        float moveDirection = Input.GetAxis("Horizontal");  // checks if we moev horizontally
+        Move(moveDirection);
+        //if (moveDirection > 0 && !isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
+        //{
+            //Flip();
+        //}
+        //else if (moveDirection < 0 && isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
+        //{
+            //Flip();
+        //}
+        
+        //GREEN ABOVE WILL FIX EVENTUALLY. PLACEHOLDER
+        
+        
+        
+        if (Input.GetButtonDown("Jump") && isGrounded) // If space is pressed, then jump
         {
             Jump();
+        
         }
-        animator.SetBool("Jump", !isGrounded);
+        //animator.SetBool("Jump", !isGrounded); PLACEHOLDER
 
         if (sanity >= 75)
         { //scary
@@ -57,15 +62,15 @@ public class moemvment3 : MonoBehaviour
     }
     private void Move(float direction)
     {
-        Vector2 movement = new Vector2(direction * moveSpeed, rb.linearVelocity.y); // r�kna ut hur vi r�r oss i relation till spelarens velocity
+        Vector2 movement = new Vector2(direction * moveSpeed, rb.linearVelocity.y); // how we move
         rb.linearVelocity = movement;
         float absoluteSpeed = Mathf.Abs(direction * moveSpeed);
-        animator.SetFloat("Speed", absoluteSpeed); // Använd Speed parametern i animatorn
+        //animator.SetFloat("Speed", absoluteSpeed); // speed for the animation
     }
 
     private void Jump()
     {
-        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // L�gg till vertical force f�r att kunna hoppa
+        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // jumps upwards
     }
     private void Flip()
     {
