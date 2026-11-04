@@ -46,19 +46,6 @@ public class moemvment3 : MonoBehaviour
         
         }
         //animator.SetBool("Jump", !isGrounded); PLACEHOLDER
-
-        if (sanity >= 75)
-        { //scary
-        }
-        else if (sanity >= 50)
-        { //scary-er
-        }
-        else if (sanity >= 25)
-        { //scary-est
-        }
-        else if (sanity >= 0)
-        { //dead
-        }
     }
     private void Move(float direction)
     {
