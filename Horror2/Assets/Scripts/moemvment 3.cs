@@ -23,19 +23,17 @@ public class moemvment3 : MonoBehaviour
     }
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Kolla om spelaren �r p� marken
-        float moveDirection = Input.GetAxis("Horizontal");  // checks if we moev horizontally
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Checks if the player is on the ground
+        float moveDirection = Input.GetAxis("Horizontal");  // checks if we move horizontally
         Move(moveDirection);
-        //if (moveDirection > 0 && !isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
-        //{
-            //Flip();
-        //}
-        //else if (moveDirection < 0 && isFacingRight) // Flippa spelaren s� den tittar i den riktningen som den r�r sig i
-        //{
-            //Flip();
-        //}
-        
-        //GREEN ABOVE WILL FIX EVENTUALLY. PLACEHOLDER
+        if (moveDirection > 0 && !isFacingRight) //  Flips the player to the direction they're moving in
+        {
+            Flip();
+        }
+        else if (moveDirection < 0 && isFacingRight) // Flips the player to the direction they're moving in
+        {
+            Flip();
+        }
         
         
         
@@ -44,7 +42,7 @@ public class moemvment3 : MonoBehaviour
             Jump();
         
         }
-        //animator.SetBool("Jump", !isGrounded); PLACEHOLDER
+        //animator.SetBool("Jump", !isGrounded);
     }
     private void Move(float direction)
     {
@@ -60,12 +58,11 @@ public class moemvment3 : MonoBehaviour
     }
     private void Flip()
     {
-        isFacingRight = !isFacingRight;  // Flippa player spriten horisontellt
+        isFacingRight = !isFacingRight;  // flips the player sprite
         transform.Rotate(0f, 180f, 0f);
         Transform firepoint = transform.Find("FirePoint");
         firepoint.localPosition = new Vector3(-firepoint.localPosition.x, firepoint.localPosition.y, firepoint.localPosition.z);
     }
-  
-    
+
 }
 
