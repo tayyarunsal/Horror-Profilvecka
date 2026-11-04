@@ -21,7 +21,7 @@ public class DoorSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !isOpen)
         {
             isOpen = true;
-
+            Destroy(gameObject);
             doorRenderer.sprite = openDoor;
             transform.position = new Vector3(10f, -1, 0);
             Destroy(doorcollision);
