@@ -6,25 +6,22 @@ public class Lights : MonoBehaviour
 {
 
     [SerializeField]
-    float lightFlickerTime = 1;
+    public float sanityLoss = 1;
 
     [SerializeField]
-    float sanityLoss = 1;
+    public float sanityGain = 1;
 
     [SerializeField]
-    float sanityGain = 1;
+    public float totalPlayerSanity = 98;
 
     [SerializeField]
-    float totalPlayerSanity = 98;
-
-    [SerializeField]
-    bool active;
+    public bool active;
 
     [SerializeField]
     GameObject lightPreFab;
 
-    float nextChange;
-    float changeTimer;
+    public float nextChange;
+    public float changeTimer;
 
     GameObject newGameObject;
 
@@ -50,7 +47,7 @@ public class Lights : MonoBehaviour
 
         if (active == true && newGameObject == null)
         {
-            newGameObject = Instantiate(lightPreFab, new Vector3(0, 0, 0), Quaternion.identity);
+            newGameObject = Instantiate(lightPreFab, new Vector3(0, -3, 0), Quaternion.identity);
         }
         else if (active == false && newGameObject != null)
         {

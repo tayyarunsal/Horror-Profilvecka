@@ -180,8 +180,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 2107897649921762985, guid: c84dd35962fd4c944bd100c1e01d6456, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,12 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632eaf04f82e2644282d6876e4e0b8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightFlickerTime: 1
   sanityLoss: 1
   sanityGain: 1
   totalPlayerSanity: 98
   active: 0
   lightPreFab: {fileID: 1885925292}
+  nextChange: 0
+  changeTimer: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,12 +899,20 @@ PrefabInstance:
       value: LightHitbox
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.3335
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -7.02
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.z
