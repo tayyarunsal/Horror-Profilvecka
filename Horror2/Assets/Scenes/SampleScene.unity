@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 2107897649921762985, guid: c84dd35962fd4c944bd100c1e01d6456, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1499,29 +1499,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightHitbox
       objectReference: {fileID: 0}
-    - target: {fileID: 6645834597036405046, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645834597036405046, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10.3335
-      objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.02
+      value: -5.88
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1555,8 +1539,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6895405901790986083, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
