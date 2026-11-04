@@ -1,9 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public class SanitySystem : MonoBehaviour
 {
 
-    int sanity = 100;
+    public int sanity = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,10 +16,11 @@ public class SanitySystem : MonoBehaviour
     void Update()
     {
         if (sanity >= 75)
-        { //scary
+        {
+
         }
         else if (sanity >= 50)
-        { //scary-er
+        { //scary-erx
         }
         else if (sanity >= 25)
         { //scary-est
