@@ -11,7 +11,7 @@ public class moemvment3 : MonoBehaviour
     public float moveSpeed = 5f; // Hur snabbt v�r karakt�r f�r r�ra sig
     public float jumpForce = 5f; // Vilken force hopp knappen kan g�ra
     public Transform groundCheck; // Kolla om spelaren har r�rt vid marken
-    public float groundCheckRadius = 0.2f; // Inom vilken radie kan vi r�ra marken
+    public float groundCheckRadius = 0.6f; // Inom vilken radie kan vi r�ra marken
     public LayerMask groundLayer; // Vilket lager har marken
     private bool isFacingRight = true; // Kolla vilket h�ll karakt�ren tittar i
     private bool isGrounded = false; // Om vi �r p� marken eller inte

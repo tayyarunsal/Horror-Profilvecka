@@ -11,9 +11,7 @@ public class wallision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position =
-                  new Vector3(transform.position.x,
-                  Mathf.Clamp(transform.position.y, -3.767f, 3.767f), 0);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
