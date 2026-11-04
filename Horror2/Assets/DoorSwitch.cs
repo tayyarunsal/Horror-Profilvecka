@@ -1,0 +1,27 @@
+using UnityEngine;
+
+public class DoorSwitch : MonoBehaviour
+{
+    public SpriteRenderer doorRenderer;
+
+    public Sprite closedDoor;
+    public Sprite openDoor;
+
+    private bool isOpen = false;
+
+    void Start()
+    {
+        doorRenderer.sprite = closedDoor;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !isOpen)
+        {
+            isOpen = true;
+
+            doorRenderer.sprite = openDoor;
+            transform.position = new Vector3(10f, -1, 0);
+        }
+    }
+}
