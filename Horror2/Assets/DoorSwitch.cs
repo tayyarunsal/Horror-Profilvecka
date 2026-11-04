@@ -6,6 +6,8 @@ public class DoorSwitch : MonoBehaviour
 
     public Sprite closedDoor;
     public Sprite openDoor;
+    [SerializeField]
+    GameObject doorcollision;
 
     private bool isOpen = false;
 
@@ -22,6 +24,7 @@ public class DoorSwitch : MonoBehaviour
 
             doorRenderer.sprite = openDoor;
             transform.position = new Vector3(10f, -1, 0);
+            Destroy(doorcollision);
         }
     }
 }
