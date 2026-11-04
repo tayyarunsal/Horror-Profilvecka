@@ -9,7 +9,7 @@ public class moemvment3 : MonoBehaviour
     public float moveSpeed = 5f; // movement speed
     public float jumpForce = 5f; // how high you jump
     public Transform groundCheck; // checks if you're on the ground 
-    public float groundCheckRadius = 0.2f; // groundcheck hitbox
+    public float groundCheckRadius = 0.1f; // groundcheck hitbox
     public LayerMask groundLayer; // whether the groundchecks sees it as ground or not
     private bool isFacingRight = true; // checks what direction the player is facing
     private bool isGrounded = false; // in case we are on the ground or not
