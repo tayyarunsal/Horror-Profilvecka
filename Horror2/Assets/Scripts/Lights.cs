@@ -12,7 +12,7 @@ public class Lights : MonoBehaviour
     public float sanityGain = 1;
 
     [SerializeField]
-    public float totalPlayerSanity = 98;
+    public float totalPlayerSanity = 4;
 
     [SerializeField]
     public bool active;
