@@ -5,8 +5,7 @@ public class moemvment3 : MonoBehaviour
 
 {
     
-    [SerializeField]
-    public int sanity = 100;
+    
     public float moveSpeed = 5f; // movement speed
     public float jumpForce = 5f; // how high you jump
     public Transform groundCheck; // checks if you're on the ground 
