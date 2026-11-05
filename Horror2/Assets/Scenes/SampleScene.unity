@@ -162,6 +162,8 @@ MonoBehaviour:
   face25: {fileID: 271363456633876074, guid: 8ed5c472a8acc9a4ab2c7fef2fd4a4a0, type: 3}
   face0: {fileID: -6717798376109501544, guid: 0df3b1cbd1dcea348988b84562d8e663, type: 3}
   sanityChangeSpeed: 5
+  SanityLossSpeed: 5
+  SanityGainSpeed: 5
 --- !u!4 &94774965
 Transform:
   m_ObjectHideFlags: 0
@@ -355,9 +357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanityLoss: 1
   sanityGain: 1
-  totalPlayerSanity: 98
-  active: 0
+  active: 1
   lightPreFab: {fileID: 1885925292}
+  BackgroundOfLight: {fileID: 2053429385}
+  SurfaceOfLight: {fileID: 1016299893}
+  DoorOfLight: {fileID: 1654135462}
   nextChange: 0
   changeTimer: 0
 --- !u!1 &332397950
@@ -2185,6 +2189,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 174256261}
     m_Modifications:
+    - target: {fileID: 2549980032784712408, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549980032784712408, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549980032784712408, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549980032784712408, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3468141592121255963, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_Name
       value: LightHitbox
@@ -2211,7 +2231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.02
+      value: -51.4
       objectReference: {fileID: 0}
     - target: {fileID: 8395264245400496513, guid: 73c84321b802e7a4e8e4b45e0bdd9076, type: 3}
       propertyPath: m_LocalPosition.z
