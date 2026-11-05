@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class moemvment3 : MonoBehaviour
 
 { //REMINDER: REMOVE ANIMATION "//" CODE
-    
-    
+
+   
     public float moveSpeed = 5f; // movement speed
     public float jumpForce = 5f; // how high you jump
     public Transform groundCheck; // checks if you're on the ground 
@@ -14,12 +14,12 @@ public class moemvment3 : MonoBehaviour
     private bool isFacingRight = true; // checks what direction the player is facing
     private bool isGrounded = false; // in case we are on the ground or not
     private Rigidbody2D rb; // rigidbody
-    //private Animator animator; // animating
-
+    private Animator animator; // animating
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // grabs the rigidobdy
-        //animator = GetComponent<Animator>(); // grabs the animator
+        animator = GetComponent<Animator>(); // grabs the animator
     }
     private void Update()
     {
@@ -34,22 +34,23 @@ public class moemvment3 : MonoBehaviour
         {
             Flip();
         }
+
         
-        
-        
+
         if (Input.GetButtonDown("Jump") && isGrounded) // If space is pressed, then jump
         {
             Jump();
         
         }
-        //animator.SetBool("Jump", !isGrounded);
+        animator.SetBool("Jump", !isGrounded);
+        
     }
     private void Move(float direction)
     {
         Vector2 movement = new Vector2(direction * moveSpeed, rb.linearVelocity.y); // how we move
         rb.linearVelocity = movement;
         float absoluteSpeed = Mathf.Abs(direction * moveSpeed);
-        //animator.SetFloat("Speed", absoluteSpeed); // speed for the animation
+        animator.SetFloat("Speed", absoluteSpeed); // speed for the animation
     }
 
     private void Jump()
