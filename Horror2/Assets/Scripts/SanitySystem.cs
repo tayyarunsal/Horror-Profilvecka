@@ -44,6 +44,17 @@ public class SanitySystem : MonoBehaviour
         UpdateSanity();
     }
 
+    // DENNA FUNKTION ANVÄNDS AV MONSTRET
+    public void LoseSanity(int amount)
+    {
+        sanity -= amount;
+
+        // Se till att sanity aldrig går under 0
+        sanity = Mathf.Clamp(sanity, 0, 100);
+
+        UpdateSanity();
+    }
+
     bool IsInDarkness()
     {
         // true = mörker
@@ -82,3 +93,4 @@ public class SanitySystem : MonoBehaviour
         }
     }
 }
+
