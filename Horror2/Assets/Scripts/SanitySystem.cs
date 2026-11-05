@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SanitySystem : MonoBehaviour
 {
-    public int sanity = 100;
+    public float sanity = 100f;
 
     public Image sanityBar;
     public Image faceImage;
@@ -22,6 +22,12 @@ public class SanitySystem : MonoBehaviour
 
     public float sanityChangeSpeed = 5f;
 
+    public float SanityLossSpeed = 5f;
+
+    public float SanityGainSpeed = 5f;
+
+    private bool IsInLight = false;
+
     void Start()
     {
         UpdateSanity();
@@ -29,20 +35,36 @@ public class SanitySystem : MonoBehaviour
 
     void Update()
     {
-        if (IsInDarkness())
+        if (IsInLight)
         {
-            sanity -= Mathf.RoundToInt(sanityChangeSpeed * Time.deltaTime);
+            sanity += SanityGainSpeed * Time.deltaTime;
         }
         else
         {
-            sanity += Mathf.RoundToInt(sanityChangeSpeed * Time.deltaTime);
+            sanity -= SanityLossSpeed * Time.deltaTime;
         }
 
-        // Sanity kan aldrig vara lägre än 0 eller högre än 100
-        sanity = Mathf.Clamp(sanity, 0, 100);
+        sanity = Mathf.Clamp(sanity, 0f, 100f);
 
         UpdateSanity();
+
     }
+
+    public void SetInLight(bool value)
+    {
+        IsInLight = value;
+    }
+
+
+    public void ChangeSanity(float amount)
+    {
+        sanity += amount;
+
+        sanity = Mathf.Clamp(sanity, 0f, 100f);
+
+        UpdateSanity();
+;    }
+
 
     bool IsInDarkness()
     {
