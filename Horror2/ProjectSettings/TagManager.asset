@@ -7,6 +7,8 @@ TagManager:
   - Surface
   - NextRoom
   - PreviousRoom
+  - PreviousLevelChange
+  - NextLevelChange
   layers:
   - Default
   - TransparentFX
