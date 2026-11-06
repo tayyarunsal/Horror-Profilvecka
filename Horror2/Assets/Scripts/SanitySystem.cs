@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class SanitySystem : MonoBehaviour
 {
 
     public float sanity = 100f;
-
+    
 
     public Image sanityBar;
 
@@ -47,20 +48,20 @@ public class SanitySystem : MonoBehaviour
 
 
     private bool IsInLight = false;
-
+    
 
     void Start()
 
-    {
-
+    { 
+        
         UpdateSanity();
-
+        
     }
 
 
     void Update()
 
-    {
+    { 
 
         if (IsInLight)
 
@@ -182,7 +183,7 @@ public class SanitySystem : MonoBehaviour
 
 
             Debug.Log("Player died!");
-
+            
         }
 
     }

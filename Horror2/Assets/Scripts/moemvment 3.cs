@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class moemvment3 : MonoBehaviour
 
-{ //REMINDER: REMOVE ANIMATION "//" CODE
-
-   
+{
+    public bool dead;
     public float moveSpeed = 5f; // movement speed
     public float jumpForce = 5f; // how high you jump
     public Transform groundCheck; // checks if you're on the ground 
@@ -15,14 +15,18 @@ public class moemvment3 : MonoBehaviour
     private bool isGrounded = false; // in case we are on the ground or not
     private Rigidbody2D rb; // rigidbody
     private Animator animator; // animating
-    
+    private SanitySystem sanitySystem;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // grabs the rigidobdy
+        sanitySystem = GetComponentInChildren<SanitySystem>();
         animator = GetComponent<Animator>(); // grabs the animator
+        
+
     }
     private void Update()
     {
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer); // Checks if the player is on the ground
         float moveDirection = Input.GetAxis("Horizontal");  // checks if we move horizontally
         Move(moveDirection);
@@ -35,15 +39,22 @@ public class moemvment3 : MonoBehaviour
             Flip();
         }
 
-        
+
 
         if (Input.GetButtonDown("Jump") && isGrounded) // If space is pressed, then jump
         {
             Jump();
-        
+
         }
-        animator.SetBool("Jump", !isGrounded);
+        if (dead == true)
+        { 
+        animator.SetBool("Dead", dead);
+        }
+
+        if (sanitySystem.sanity <= 0f)
+        { dead = true; }
         
+
     }
     private void Move(float direction)
     {
