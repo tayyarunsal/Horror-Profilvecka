@@ -764,7 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 512835960}
   - component: {fileID: 512835959}
-  - component: {fileID: 512835958}
+  - component: {fileID: 512835961}
   m_Layer: 3
   m_Name: Door  (1)
   m_TagString: Surface
@@ -772,22 +772,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &512835958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512835957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66324c0f3325be44580a8633b631099c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorRenderer: {fileID: 512835959}
-  closedDoor: {fileID: -4391261618351607868, guid: 7efd737c7d13e2843a9a04c315e46805, type: 3}
-  openDoor: {fileID: 2916696520899217340, guid: 30933fd9176b792409a29eb4c039ec41, type: 3}
-  doorcollision: {fileID: 0}
 --- !u!212 &512835959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -858,6 +842,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -1.305, y: 0, z: 0}
+--- !u!114 &512835961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512835957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03268387b165648ae5d2e93992f8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorRenderer: {fileID: 512835959}
+  closedDoor: {fileID: -4391261618351607868, guid: 7efd737c7d13e2843a9a04c315e46805, type: 3}
+  openDoor: {fileID: 2916696520899217340, guid: 30933fd9176b792409a29eb4c039ec41, type: 3}
+  doorcollision: {fileID: 0}
 --- !u!1 &615592195
 GameObject:
   m_ObjectHideFlags: 0
