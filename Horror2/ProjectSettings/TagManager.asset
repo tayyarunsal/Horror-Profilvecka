@@ -9,6 +9,7 @@ TagManager:
   - PreviousRoom
   - PreviousLevelChange
   - NextLevelChange
+  - Monster
   layers:
   - Default
   - TransparentFX

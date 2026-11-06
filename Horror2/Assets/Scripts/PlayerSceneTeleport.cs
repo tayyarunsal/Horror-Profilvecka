@@ -20,22 +20,22 @@ public class PlayerSceneTeleporter : MonoBehaviour
         }
     }
 
-    // OnEnable runs when the object is turned on. We use it to subscribe to the scene load event.
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // OnDisable runs if the object is turned off or destroyed. Always unsubscribe to prevent memory leaks.
+
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // This method replaces Start(). It will trigger EVERY time a new scene finishes loading.
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Check if we are the true instance, otherwise the duplicate might try to run this before dying
+
         if (instance != this) return;
 
         if (travelDirection == 1)

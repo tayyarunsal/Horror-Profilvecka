@@ -9,22 +9,30 @@ public class EyeClosing : MonoBehaviour
     public LayerMask groundLayer; // whether the groundchecks sees it as ground or not
     private bool isStill = false; // in case we are on the ground or not
 
+    private GameObject monster;
 
+    [SerializeField]
+    GameObject Prefab;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    { 
-        
+    {
+
     }
+
 
     // Update is called once per frame
     public void Update()
     {
+        monster = GameObject.FindWithTag("Monster");
         isStill = Physics2D.OverlapCircle(movementCheck.position, stationaryCheckRadius, groundLayer);
         
-        if (Input.GetKey(eyeClose) && isStill)
+        if (Input.GetKey(eyeClose))
         { blunda = true;
+        }
+
+        if (blunda == true)
+        {
+            Destroy(monster);
         }
     }
 }
