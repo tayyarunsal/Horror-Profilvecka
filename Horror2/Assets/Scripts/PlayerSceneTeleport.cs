@@ -11,40 +11,38 @@ public class PlayerSceneTeleporter : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            instance = this; //the player which is the parent of this script.
+            DontDestroyOnLoad(gameObject); //makes sure our player and the objects inside of it doesn't get destroyed.
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //if it exists dupes somehow.
         }
     }
 
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded; //loads our next level by +1, depending on the previous door we entered.
     }
 
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded; //loads our next level by -1, depending on the previous door we entered.
     }
 
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
-        if (instance != this) return;
-
-        if (travelDirection == 1)
+        if (travelDirection == 1) //if the direction is going up/front.
         {
-            SpawnAtDoor("PreviousLevelChange");
+            SpawnAtDoor("PreviousLevelChange"); //then spawn at the PreviousLevelChange
         }
-        else if (travelDirection == -1)
+        else if (travelDirection == -1) //if the direction is going down/end
         {
-            SpawnAtDoor("NextLevelChange");
+            SpawnAtDoor("NextLevelChange"); //then spawn at the NextLevelChange
         }
     }
 
