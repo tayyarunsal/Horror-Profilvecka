@@ -16,13 +16,15 @@ public class moemvment3 : MonoBehaviour
     private Rigidbody2D rb; // rigidbody
     private Animator animator; // animating
     private SanitySystem sanitySystem;
+    private EyeClosing eyeClosing;
+    private bool blunda;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // grabs the rigidobdy
         sanitySystem = GetComponentInChildren<SanitySystem>();
         animator = GetComponent<Animator>(); // grabs the animator
-        
-
+        eyeClosing = GetComponentInChildren<EyeClosing>();
+        blunda = true == eyeClosing.blunda == true;
     }
     private void Update()
     {
@@ -46,13 +48,25 @@ public class moemvment3 : MonoBehaviour
             Jump();
 
         }
+        if (eyeClosing.blunda == true)
+        {
+            blunda = true;
+            animator.SetBool("Blunda", blunda); //for some reason the animation only decides to use one frame and since we have very little time left I will be forced to ignore this problem
+           
+        } //if you want to view the full animations, check the sprites: eye-close 1-7 and gameover 1-10
+       
         if (dead == true)
         { 
-        animator.SetBool("Dead", dead);
+        animator.SetBool("Dead", dead); //same singular frame issue with this as well, I suspect it has something to do with using variables from different scripts.
+            moveSpeed = 0f;
+            jumpForce = 0f;
         }
 
         if (sanitySystem.sanity <= 0f)
-        { dead = true; }
+        { dead = true;
+            moveSpeed = 0f;
+            jumpForce = 0f;
+        }
         
 
     }
